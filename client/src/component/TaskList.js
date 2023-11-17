@@ -46,7 +46,6 @@ const TaskList = () => {
       .catch((error) => console.error("Error updating task:", error));
   };
 
-
   console.log("tasks", tasks);
 
   return (
