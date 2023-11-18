@@ -3,11 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const TaskForm = ({ onSubmit }) => {
-  console.log("inside task form");
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
-  // const history = useHistory();
   const navigate = useNavigate("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +24,6 @@ const TaskForm = ({ onSubmit }) => {
 
     axios.post('http://localhost:5000/api/tasks', newTask) // Replace with your backend URL
       .then(response => {
-        console.log(response.data);
-        // history.push('/');
         navigate('/');
       })
       .catch(error => console.error('Error creating task:', error));
@@ -35,7 +31,7 @@ const TaskForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <h2>Create New Task</h2>
+      <h2 id='button'>Create New Task</h2>
       <form onSubmit={handleSubmit}>
         <label>Title:</label>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
